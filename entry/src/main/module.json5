@@ -1,0 +1,68 @@
+{
+  "module": {
+    "name": "entry",
+    "type": "entry",
+    "description": "$string:module_desc",
+    "mainElement": "EntryAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet",
+      "2in1"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "metadata": [
+      {
+        "name": "avoid_cutout",
+        "value": "true"
+      }
+    ],
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.INTERNET"
+      },
+      {
+        "name": "ohos.permission.GET_NETWORK_INFO"
+      },
+      {
+        // 播放页音量手势要写**系统媒体音量**（`AudioManager.setVolume`）。
+        // 这个 API 的官方前置条件就是本权限；权限本身是
+        // grantMode=system_grant、availableLevel=normal，声明即授予，无需运行时弹窗。
+        // 不声明时 `setVolume` 会 resolve 但**静默不生效**——
+        // 真机表现就是「音量手势只能微小抖动、大动不了」（2026-09-16 实测日志）。
+        "name": "ohos.permission.ACCESS_NOTIFICATION_POLICY"
+      }
+    ],
+    "abilities": [
+      {
+        "name": "EntryAbility",
+        "srcEntry": "./ets/entryability/EntryAbility.ets",
+        "description": "$string:EntryAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:EntryAbility_label",
+        // 启动页配置（`resources/base/profile/startWindow.json`）：
+        // 里面把「启动页背景图」直接设成那张长屏启动图，`Cover` 铺满。
+        // 这是 HarmonyOS 为启动页准备的专门配置，**不需要 startWindowAppIcon**，
+        // 所以点图标 → 直接看到长图，中间没有「居中图标 + 底色」那一帧。
+        "startWindow": "$profile:startWindow",
+        // 下面两项是 ability 的**必填**字段（schema 里 required）。
+        // 有 startWindow 配置时以配置为准；万一某些设备回不到配置，
+        // 兜底也要保证出现的是长图而不是方形图标。
+        "startWindowIcon": "$media:splash",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true,
+        "skills": [
+          {
+            "entities": [
+              "entity.system.home"
+            ],
+            "actions": [
+              "action.system.home"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

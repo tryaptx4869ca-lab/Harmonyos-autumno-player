@@ -1,0 +1,6 @@
+{
+  "name": "libmpv_bridge.so",
+  "types": "./index.d.ts",
+  "version": "1.0.0",
+  "description": "秋绪原生版 mpv 桥"
+}

@@ -1,0 +1,17 @@
+/node_modules
+/oh_modules
+/.hvigor
+/.hvigor-user
+/.idea
+/.cxx
+/build
+/entry/build
+/entry/.preview
+/entry/oh_modules
+/entry/libs
+/entry/.cxx
+/local.properties
+*.iml
+.DS_Store
+*.log
+*.tmp

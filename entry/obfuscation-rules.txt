@@ -1,0 +1,22 @@
+# 混淆规则（release 构建用）。
+#
+# 模块级 `build-profile.json5` 的 `buildOptionSet[name=release]` 里
+# `obfuscation.ruleOptions.enable = false` —— 也就是说**当前不做任何混淆**，
+# 这个文件只是 hvigor 在 release 模式下的必填项（缺了会直接编译失败：
+# `The obfuscation rule file './obfuscation-rules.txt' cannot be found`）。
+#
+# 下面这些是常用的可选开关，要用时把注释去掉；正式打开混淆前，
+# 务必先在真机上把「弹幕 / 取流 / 规则引擎 / 设置项 / 导航栈」几条链路跑一遍——
+# 本工程大量依赖按字符串取的键（AppStorage 的 `historyRevision` / `collectRevision`、
+# 规则 JSON 的字段名、`javaScriptProxy` 暴露的方法名），
+# 属性混淆（-enable-property-obfuscation）与文件名混淆最容易踩这类坑。
+#
+# 官方说明：https://developer.huawei.com/consumer/cn/doc/harmonyos-guides/source-obfuscation
+#
+# -disable-obfuscation
+# -enable-property-obfuscation
+# -enable-toplevel-obfuscation
+# -enable-filename-obfuscation
+# -enable-export-obfuscation
+# -compact
+# -remove-log

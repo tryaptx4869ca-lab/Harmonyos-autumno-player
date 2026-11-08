@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "秋绪原生版主模块"
+    },
+    {
+      "name": "EntryAbility_desc",
+      "value": "秋绪"
+    },
+    {
+      "name": "EntryAbility_label",
+      "value": "秋绪"
+    }
+  ]
+}

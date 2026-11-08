@@ -1,0 +1,11 @@
+{
+  "name": "entry",
+  "version": "1.0.0",
+  "description": "秋绪原生版主模块",
+  "main": "",
+  "author": "",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "libmpv_bridge.so": "file:./src/main/cpp/types/libmpv_bridge"
+  }
+}
